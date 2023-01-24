@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "epxress": "^0.0.1-security",
+    "mongoose": "^6.8.4"
+  }
+}
