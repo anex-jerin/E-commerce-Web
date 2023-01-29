@@ -4,7 +4,7 @@ import avatar from '../assets/avatar.jpg';
 import styles from '../styles/Login.module.css';
 import { Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
-import { loginValidate } from './pages/validate';
+import { registerValidation } from './pages/validate';
 import convertToBase64 from './pages/convert';
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
       password: '',
       email:''
     },
-    validate: loginValidate,
+    validate: registerValidation,
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (values) => {
