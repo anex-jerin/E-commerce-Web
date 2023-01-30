@@ -8,12 +8,16 @@ export const loginValidate = (values) => {
 };
 
 const loginVerify = (error = {}, values) => {
+  //eslint-disable-next-line
+  const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
   if (!values.username) {
     error.username = toast.error('Username required');
   } else if (values.username.includes(' ')) {
     error.username = toast.error('invalid username');
   } else if (!values.password) {
     error.password = toast.error('password required');
+  } else if (!specialChars.test(values.password)) {
+    error.password = toast.error('password must contain special character');
   }
   return error;
 };
@@ -21,9 +25,9 @@ const loginVerify = (error = {}, values) => {
 // register verification
 
 export const registerValidation = (values) => {
-  const errors = emailVerify(values);
-  loginVerify(errors,values);
-  return errors
+  const errors = emailVerify({}, values);
+  loginVerify(errors, values);
+  return errors;
 };
 
 const emailVerify = (error = {}, values) => {

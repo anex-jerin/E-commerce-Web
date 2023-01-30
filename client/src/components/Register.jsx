@@ -6,9 +6,12 @@ import { Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
 import { registerValidation } from './pages/validate';
 import convertToBase64 from './pages/convert';
+import { useCreateUserMutation } from '../api/api';
 
 const Login = () => {
+  const [addUser] = useCreateUserMutation()
   const [file, setFile] = useState();
+
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -20,7 +23,7 @@ const Login = () => {
     validateOnChange: false,
     onSubmit: async (values) => {
       values = Object.assign(values, { profile: file || '' });
-      console.log(values);
+      addUser(values)
     },
   });
 
@@ -72,7 +75,7 @@ const Login = () => {
               <div className='text-center py-4'>
                 <span className='text-gray-500'>
                   Already signed up?&nbsp;
-                  <Link to='/login' className='text-red-500'>
+                  <Link to='/username' className='text-red-500'>
                     Login
                   </Link>
                 </span>

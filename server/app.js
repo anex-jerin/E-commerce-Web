@@ -1,14 +1,20 @@
 require('dotenv').config();
 const express = require('express');
-const app = express();
+const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const cors = require('cors');
+const clientRoutes = require('./routes/clientRoutes.js')
 
-app.use(express.json());
+const app = express();
+
+app.use(bodyParser.json({ limit: '50mb', extended: true }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(cors());
 
-
 const PORT = process.env.PORT;
+ 
+
+app.use('/api/v1', clientRoutes)
 
 async function connect() {
   mongoose.set('strictQuery', true);
