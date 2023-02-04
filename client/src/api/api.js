@@ -11,7 +11,14 @@ export const socialApi = createApi({
         body:data
       }),
     }),
+    loginUser: builder.mutation({
+      query: (data) => ({
+        url:'/login',
+        method:'POST',
+        body:data
+      }),
+    }),
   }),
 });
 
-export const { useCreateUserMutation } = socialApi;
+export const { useCreateUserMutation,useLoginUserMutation } = socialApi;

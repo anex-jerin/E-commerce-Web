@@ -69,7 +69,7 @@ const Login = () => {
                   placeholder='Password'
                 />
                 <button className={styles.btn} type='submit'>
-                  sign in
+                  Sign Up
                 </button>
               </div>
               <div className='text-center py-4'>

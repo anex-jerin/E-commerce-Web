@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import avatar from '../assets/avatar.jpg';
 import styles from '../styles/Login.module.css';
 import { Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
 import { loginValidate } from './pages/validate';
+import { useLoginUserMutation } from '../api/api';
 
 const Login = () => {
+  const [loginUser] = useLoginUserMutation()
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -16,7 +17,7 @@ const Login = () => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (values) => {
-      console.log(values);
+      loginUser(values)
     },
   });
   return (
@@ -25,20 +26,20 @@ const Login = () => {
       <div className='flex justify-center items-center h-screen'>
         <div className={styles.glass}>
           <div className='title flex flex-col items-center '>
-            <h4 className='text-5xl font-bold'>Hello</h4>
-            <span className='py-4 text-xl w-2/3 text-center text-gray-500'>
+            <h4 className='text-5xl font-bold'>Login</h4>
+            <span className='py-4 text-xl w-2/3 text-center text-gray-500 my-16'>
               explore more with the connectivity
             </span>
             <form className='py-1' onSubmit={formik.handleSubmit}>
-              <div className='profile flex justify-center py-4'>
+              {/* <div className='profile flex justify-center py-4'>
                 <div className={styles.profile}>
-                  <img src={avatar} alt='avatar' />
+                  <img src={hello} alt='avatar' />
                 </div>
-              </div>
-              <div className='textbox flex flex-col items-center gap-5'>
+              </div> */}
+              <div className='textbox flex flex-col items-center gap-8'>
                 <input
                   {...formik.getFieldProps('username')}
-                  className={styles.input}
+                  className={styles.input} 
                   type='text'
                   placeholder='Username'
                 />
@@ -49,7 +50,7 @@ const Login = () => {
                   placeholder='Password'
                 />
                 <button className={styles.btn} type='submit'>
-                  sign in
+                  Sign In
                 </button>
               </div>
               <div className='text-center py-4'>
