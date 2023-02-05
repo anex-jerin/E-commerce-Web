@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const clientRoutes = require('./routes/clientRoutes.js')
 
+
 const app = express();
 
 app.use(bodyParser.json({ limit: '50mb', extended: true }));
