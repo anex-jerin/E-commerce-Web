@@ -7,7 +7,8 @@ const {
   generateOtp,
   verifyUser,
   verifyOtp,
-  resetPassword
+  resetPassword,
+  createResetSession
 } = require('../controllers/user.js');
 const router = express.Router();
 const {Auth, localVariable} = require('../middleware/auth');
@@ -26,6 +27,9 @@ router.get('/generateOTP',verifyUser,localVariable, generateOtp )
 router.get('/verifyOTP',verifyUser, verifyOtp )
 /* reset password */
 router.put('/resetPwd', resetPassword)
+/* reset session */
+router.get('/resetSession', createResetSession)
+
  
 
 module.exports = router;
