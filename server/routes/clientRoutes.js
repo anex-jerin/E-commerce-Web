@@ -6,7 +6,8 @@ const {
   updateUser,
   generateOtp,
   verifyUser,
-  verifyOtp
+  verifyOtp,
+  resetPassword
 } = require('../controllers/user.js');
 const router = express.Router();
 const {Auth, localVariable} = require('../middleware/auth');
@@ -23,6 +24,8 @@ router.put('/user', Auth, updateUser);
 router.get('/generateOTP',verifyUser,localVariable, generateOtp )
 /* verify OTP */
 router.get('/verifyOTP',verifyUser, verifyOtp )
+/* reset password */
+router.put('/resetPwd', resetPassword)
  
 
 module.exports = router;

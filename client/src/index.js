@@ -10,7 +10,7 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 const store = configureStore({
   reducer: {
     [socialApi.reducerPath]: socialApi.reducer,
-  },
+  }, 
 
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(socialApi.middleware),
