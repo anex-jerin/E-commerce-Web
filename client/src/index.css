@@ -2,7 +2,7 @@
 
 body{
   font-family: 'Poppins', sans-serif;
-  background: #e7e7e9;
+  background: rgb(236, 244, 247);
 }
 
 @tailwind base;

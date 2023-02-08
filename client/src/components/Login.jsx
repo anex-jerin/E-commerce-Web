@@ -4,10 +4,9 @@ import styles from '../styles/Login.module.css';
 import { Toaster } from 'react-hot-toast';
 import { useFormik } from 'formik';
 import { loginValidate } from './pages/validate';
-import { useLoginUserMutation } from '../api/api';
+
 
 const Login = () => {
-  const [loginUser] = useLoginUserMutation()
   const formik = useFormik({
     initialValues: {
       username: '',
@@ -17,7 +16,7 @@ const Login = () => {
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit: async (values) => {
-      loginUser(values)
+      console.log(values)
     },
   });
   return (
@@ -25,7 +24,7 @@ const Login = () => {
       <Toaster position='bottom-center'></Toaster>
       <div className='flex justify-center items-center h-screen'>
         <div className={styles.glass}>
-          <div className='title flex flex-col items-center '>
+          <div className='title p-8 flex flex-col items-center '>
             <h4 className='text-5xl font-bold'>Login</h4>
             <span className='py-4 text-xl w-2/3 text-center text-gray-500 my-16'>
               explore more with the connectivity

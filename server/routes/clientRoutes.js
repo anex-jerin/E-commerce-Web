@@ -8,28 +8,28 @@ const {
   verifyUser,
   verifyOtp,
   resetPassword,
-  createResetSession
+  createResetSession,
 } = require('../controllers/user.js');
 const router = express.Router();
-const {Auth, localVariable} = require('../middleware/auth');
+const { Auth, localVariable } = require('../middleware/auth');
 
-/* Register user */
+/* Register user done */
 router.post('/register', registerUser);
-/* user Login */
-router.post('/login',verifyUser, userLogin);
-/*get user  */
+/* authorization done */
+router.post('/authenticate',verifyUser, (req, res) => res.end());
+/* user Login done */
+router.post('/login', verifyUser, userLogin);
+/*get user  done */
 router.get('/user/:username', getUser);
-/* update user */
+/* update user  */
 router.put('/user', Auth, updateUser);
 /* generate OTP */
-router.get('/generateOTP',verifyUser,localVariable, generateOtp )
+router.get('/generateOTP', verifyUser, localVariable, generateOtp);
 /* verify OTP */
-router.get('/verifyOTP',verifyUser, verifyOtp )
+router.get('/verifyOTP', verifyUser, verifyOtp);
 /* reset password */
-router.put('/resetPwd', resetPassword)
+router.put('/resetPwd', resetPassword);
 /* reset session */
-router.get('/resetSession', createResetSession)
-
- 
+router.get('/resetSession', createResetSession);
 
 module.exports = router;

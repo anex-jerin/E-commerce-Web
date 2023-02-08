@@ -1,11 +1,12 @@
 .glass{
-    background: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.884);
     border-radius: 16px;
-    box-shadow: 0 4px 30px #4747470b;
+    box-shadow: 0 4px 30px #b9b7b783;
     backdrop-filter: blur(7.1px);
     border: 1px solid #ff57512a;
-    @apply border-4  shrink-0 h-3/4 w-[30%] rounded-3xl py-10 px-1 w-1/2 min-w-max max-w-md;
+    @apply border-4  shrink-0 h-3/4 w-[30%] rounded-3xl py-10 px-1 min-w-max max-w-md;
 }
+
 
 .profile{
     @apply border-4 border-red-100 w-[150px] h-[150px] rounded-full shadow-lg cursor-pointer overflow-hidden ;
@@ -13,13 +14,13 @@
 }
 
 .input{
-    @apply border-0 px-7 py-4 rounded-xl w-80 shadow-sm text-lg;
+    @apply border-0 px-7 py-4 rounded-xl w-80 shadow-lg text-lg;
     @apply focus:outline-none;
 }
 
 .btn{
     background-color: #f15851;
-    @apply border-2 border-red-100 w-3/4 py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center;
+    @apply w-3/4 py-4 rounded-lg text-gray-50 text-xl text-center shadow-lg;
     @apply hover:text-black ;
     @apply hover:bg-green-500;
 }
